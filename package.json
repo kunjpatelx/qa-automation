@@ -7,7 +7,7 @@
   "test": "jest",
   "test:e2e": "playwright test",
   "test:api": "mocha --config mocha.config.js",
-  "test:all": "npm run test && npm run test:e2e && npm run test:api",
+"test:all": "npm run test && npm run test:e2e && npm run test:api",
   "build": "tsc",
   "report": "start reports/mochawesome.html",
   "deploy": "gh-pages -d reports"

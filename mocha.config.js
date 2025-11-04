@@ -7,5 +7,5 @@ module.exports = {
     json: true
   },
   require: ['ts-node/register'],
-  spec: 'tests/api-*.test.ts'
+  spec: 'api-tests/api-*.test.ts'  // ← NEW FOLDER
 };
