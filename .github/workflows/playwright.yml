@@ -24,7 +24,9 @@ jobs:
       - name: Run all tests
         run: npm run test:all
       - name: Upload report
-        uses: actions/upload-artifact@v3
+        if: always()  # Upload even if tests fail
+        uses: actions/upload-artifact@v4  # ← CHANGED TO v4
         with:
           name: test-report
           path: reports/
+          retention-days: 30  # Keep for 30 days
