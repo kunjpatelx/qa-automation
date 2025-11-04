@@ -1,0 +1,140 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-04T18:57:33.585Z",
+    "end": "2025-11-04T18:57:33.917Z",
+    "duration": 332,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0204672a-aa84-4505-9b5e-f3bc097453db",
+      "title": "",
+      "fullFile": "C:\\Users\\Kunj\\qa-automation\\tests\\api-users.test.ts",
+      "file": "\\tests\\api-users.test.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c332aca3-8399-439b-b5c0-2fddca3047f9",
+          "title": "API: Users Endpoint",
+          "fullFile": "C:\\Users\\Kunj\\qa-automation\\tests\\api-users.test.ts",
+          "file": "\\tests\\api-users.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET /users → returns 10 users",
+              "fullTitle": "API: Users Endpoint GET /users → returns 10 users",
+              "timedOut": false,
+              "duration": 134,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await (0, supertest_1.default)(API).get('/users');\n(0, chai_1.expect)(res.status).to.equal(200);\n(0, chai_1.expect)(res.body).to.have.lengthOf(10);\n(0, chai_1.expect)(res.body[0]).to.have.property('name');",
+              "err": {},
+              "uuid": "052f7639-4181-4aec-8f14-48a96caa4fee",
+              "parentUUID": "c332aca3-8399-439b-b5c0-2fddca3047f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /users/1 → returns Leanne Graham",
+              "fullTitle": "API: Users Endpoint GET /users/1 → returns Leanne Graham",
+              "timedOut": false,
+              "duration": 91,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await (0, supertest_1.default)(API).get('/users/1');\n(0, chai_1.expect)(res.status).to.equal(200);\n(0, chai_1.expect)(res.body.name).to.equal('Leanne Graham');",
+              "err": {},
+              "uuid": "5a0cf0b5-2c23-436e-844d-edcbfefb8d04",
+              "parentUUID": "c332aca3-8399-439b-b5c0-2fddca3047f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /posts → creates post",
+              "fullTitle": "API: Users Endpoint POST /posts → creates post",
+              "timedOut": false,
+              "duration": 101,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await (0, supertest_1.default)(API)\n    .post('/posts')\n    .send({ title: 'QA Test', body: 'Automation', userId: 1 });\n(0, chai_1.expect)(res.status).to.equal(201);\n(0, chai_1.expect)(res.body.title).to.equal('QA Test');",
+              "err": {},
+              "uuid": "24e9adec-f96d-45b6-8811-47ac2651e6b9",
+              "parentUUID": "c332aca3-8399-439b-b5c0-2fddca3047f9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "052f7639-4181-4aec-8f14-48a96caa4fee",
+            "5a0cf0b5-2c23-436e-844d-edcbfefb8d04",
+            "24e9adec-f96d-45b6-8811-47ac2651e6b9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 326,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "[object Object]": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
