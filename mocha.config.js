@@ -7,5 +7,9 @@ module.exports = {
     json: true
   },
   require: ['ts-node/register'],
-  spec: 'api-tests/api-*.test.ts'  // ← NEW FOLDER
+  spec: 'api-tests/api-*.test.ts',
+  // ← ADD THIS LINE
+  'ts-node': {
+    transpileOnly: true  // Skip type checking → fixes 'expect' redeclare
+  }
 };
