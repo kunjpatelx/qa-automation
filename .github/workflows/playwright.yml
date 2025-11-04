@@ -5,28 +5,39 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:focal
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
+    strategy:
+      matrix:
+        browser: [chromium]  # Can add firefox, webkit later
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
       - name: Install dependencies
         run: npm ci
-      - name: Run all tests
-        run: npm run test:all
-      - name: Upload report
-        if: always()  # Upload even if tests fail
-        uses: actions/upload-artifact@v4  # ← CHANGED TO v4
+      
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      
+      - name: Run unit tests (Jest)
+        run: npm test
+      
+      - name: Run E2E tests (Playwright)
+        run: npm run test:e2e
+      
+      - name: Run API tests (Mocha)
+        run: npm run test:api
+      
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: reports/
-          retention-days: 30  # Keep for 30 days
+          name: test-reports
+          path: |
+            reports/
+            test-results/
+          retention-days: 30
