@@ -1,5 +1,5 @@
-import request from 'supertest';
-import { expect } from 'chai';  // ← CHAI
+const request = require('supertest');
+const { expect } = require('chai');  // ← USE require, NOT import
 
 const API = 'https://jsonplaceholder.typicode.com';
 
