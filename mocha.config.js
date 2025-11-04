@@ -8,8 +8,10 @@ module.exports = {
   },
   require: ['ts-node/register'],
   spec: 'api-tests/api-*.test.ts',
-  // ← ADD THIS LINE
   'ts-node': {
-    transpileOnly: true  // Skip type checking → fixes 'expect' redeclare
+    transpileOnly: true,        // ← Skip type checking
+    compilerOptions: {
+      module: 'CommonJS'        // ← Force CommonJS
+    }
   }
 };
