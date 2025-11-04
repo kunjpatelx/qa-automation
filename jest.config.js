@@ -1,5 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['/dist/']
+  testPathIgnorePatterns: ['/dist/', '/e2e/'],
+  testMatch: ['**/tests/**/*.test.ts']  // Only Jest tests
 };
